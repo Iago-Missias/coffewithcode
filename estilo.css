@@ -1,0 +1,742 @@
+/* ============================================
+   VARIÁVEIS GLOBAIS
+   ============================================ */
+:root {
+    --dark: #272D38;
+    --light: #FFF;
+    --primary-color: #0F4D3C;
+    --primary-color-light: #1a6b55;
+    --primary-color-dark: #0a3628;
+    --gray: #F6F6F6;
+}
+
+/* ============================================
+   BODY
+   ============================================ */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    text-align: center;
+    margin: 0;
+
+    background-image:
+        radial-gradient(circle at left top, rgba(15, 77, 60, 0.15), transparent 400px),
+        radial-gradient(circle at right center, rgba(15, 77, 60, 0.15), transparent 400px);
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+.content-wrapper-center {
+    padding: 3rem 1rem 2rem;
+    max-width: 67.25rem;
+    margin: auto;
+}
+
+.imagem {
+    text-align: center;
+}
+
+.hero_title {
+    margin-top: 0;
+}
+
+/* ============================================
+   HEADER - Estilizado com background
+   ============================================ */
+.header {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(15, 77, 60, 0.15);
+    border: 1px solid rgba(15, 77, 60, 0.2);
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+    margin-bottom: 2rem;
+}
+
+.header img {
+    max-height: 40px;
+    width: auto;
+}
+
+/* ============================================
+   MENU DE NAVEGAÇÃO
+   ============================================ */
+.header-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-menu li {
+    padding: 0;
+    display: inline-block;
+}
+
+.header-menu a {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.header-menu a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-light));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.header-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--light);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.header-menu a:hover {
+    color: var(--light);
+    transform: translateY(-2px);
+}
+
+.header-menu a:hover::before {
+    opacity: 1;
+}
+
+.header-menu a:hover::after {
+    width: 40%;
+}
+
+.header-menu a.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* ============================================
+   BOTÃO
+   ============================================ */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1em;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: var(--light);
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 77, 60, 0.4);
+}
+
+/* ============================================
+   TIPOGRAFIA E LINKS
+   ============================================ */
+a {
+    color: inherit;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ============================================
+   BRANDS - Opção 3: Gradiente + brilho (VERDE)
+   ============================================ */
+.brands {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.brands h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #667085;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brands ul {
+    list-style: none;
+    padding: 3.5rem 4rem;
+    margin: 0 auto;
+    max-width: 900px;
+
+    background: linear-gradient(135deg, #f4f9f7 0%, #e8f2ee 50%, #f4f9f7 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(15, 77, 60, 0.2);
+    box-shadow:
+        0 4px 24px rgba(15, 77, 60, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.brands ul::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(15, 77, 60, 0.1) 0%, transparent 70%);
+    animation: brilho 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes brilho {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(10%, 10%);
+        opacity: 1;
+    }
+}
+
+.brands ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.brands ul li img {
+    max-height: 90px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    filter: grayscale(30%);
+}
+
+.brands ul li img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1) translateY(-3px);
+}
+
+/* ============================================
+   ACESSIBILIDADE (esconde labels)
+   ============================================ */
+.hide {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+/* ============================================
+   TESTEMUNHOS - DINÂMICOS E MODERNOS (VERDE)
+   ============================================ */
+.testemunhos {
+    padding: 4rem 1rem;
+    position: relative;
+}
+
+.testemunhos_title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.testemunhos_title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
+    border-radius: 2px;
+    margin: 1rem auto 0;
+}
+
+.testemunhos_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testemunho {
+    perspective: 1000px;
+}
+
+.testemunho_card {
+    background: linear-gradient(135deg, #ffffff 0%, #f4f9f7 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(15, 77, 60, 0.15);
+    border: 1px solid rgba(15, 77, 60, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.testemunho_card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(15, 77, 60, 0.1);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.testemunho_card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(15, 77, 60, 0.15), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.testemunho_card:hover {
+    transform: translateY(-10px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(15, 77, 60, 0.3);
+    border-color: var(--primary-color);
+}
+
+.testemunho_card:hover::before {
+    color: rgba(15, 77, 60, 0.2);
+    transform: scale(1.1);
+}
+
+.testemunho_card:hover::after {
+    left: 100%;
+}
+
+.testemunho_thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid transparent;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-light));
+    padding: 3px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(15, 77, 60, 0.3);
+}
+
+.testemunho_card:hover .testemunho_thumb {
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 8px 20px rgba(15, 77, 60, 0.5);
+}
+
+.testemunho_content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.testemunho_nome {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.testemunho_card:hover .testemunho_nome {
+    color: var(--primary-color);
+}
+
+.testemunho_content p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.testemunho_estrelas {
+    color: #ffc107;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   CONTATO
+   ============================================ */
+.contato {
+    background-color: var(--gray);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 4rem;
+}
+
+.contato_image {
+    display: none;
+}
+
+.contato_title {
+    margin-top: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background-color: var(--gray);
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+.logo {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.copyright {
+    white-space: nowrap;
+}
+
+/* ============================================
+   ESPAÇAMENTOS DAS SEÇÕES
+   ============================================ */
+.hero,
+.brands,
+.branding,
+.testemunhos,
+.contato {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+/* ============================================
+   GRID SYSTEM
+   ============================================ */
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: .5rem;
+    grid-auto-flow: dense;
+}
+
+.row>.sm-12 {
+    grid-column: 1 / -1;
+}
+
+/* ============================================
+   ÍCONES SOCIAIS
+   ============================================ */
+.icons li {
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.icons li+li {
+    margin-left: 1rem;
+}
+
+.icons a {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   HAMBURGUER MENU (mobile)
+   ============================================ */
+.header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: max-height .3s;
+    margin: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 0;
+}
+
+.menu-btn:checked~.header-menu {
+    max-height: 100vh;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.menu-btn:checked+.menu-icon .nav-icon {
+    background-color: transparent;
+}
+
+.header-menu:focus-within {
+    max-height: 100vh;
+}
+
+.menu-icon {
+    position: relative;
+    cursor: pointer;
+    height: 24px;
+}
+
+.nav-icon {
+    background-color: #333;
+    display: inline-block;
+    height: 2px;
+    width: 24px;
+    position: relative;
+}
+
+.nav-icon::after,
+.nav-icon::before {
+    content: "";
+    background-color: #333;
+    display: inline-block;
+    height: 2px;
+    width: 24px;
+    position: absolute;
+    transition: transform .2s;
+}
+
+.nav-icon::after {
+    transform: translateY(8px);
+}
+
+.nav-icon::before {
+    transform: translateY(-8px);
+}
+
+.menu-btn:checked+.menu-icon .nav-icon::before {
+    transform: rotate(-45deg);
+}
+
+.menu-btn:checked+.menu-icon .nav-icon::after {
+    transform: rotate(45deg);
+}
+
+.menu-btn:focus-visible+.menu-icon {
+    outline: 2px solid black;
+    outline-offset: 3px;
+}
+
+/* ============================================
+   MEDIA QUERIES - TABLET (min-width: 46.25em)
+   ============================================ */
+@media screen and (min-width: 46.25em) {
+
+    body {
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 3.625rem;
+    }
+
+    h2 {
+        font-size: 2.875rem;
+    }
+
+    .header {
+        align-items: center;
+    }
+
+    .menu-btn,
+    .menu-icon {
+        display: none;
+    }
+
+    .header-menu {
+        position: static;
+        max-height: initial;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        flex-direction: row;
+        gap: 0.5rem;
+        box-shadow: none;
+    }
+
+    .header-menu li {
+        display: inline-block;
+        margin-left: 0;
+    }
+
+    .header-menu a {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .contato_image {
+        display: block;
+        text-align: center;
+    }
+
+    .row {
+        gap: 1rem;
+    }
+
+    .row>.md-3 {
+        grid-column: span 3;
+    }
+
+    .row>.md-4 {
+        grid-column: span 4;
+    }
+
+    .row>.md-6 {
+        grid-column: span 6;
+    }
+
+    .row>.md-9 {
+        grid-column: span 9;
+    }
+
+    .row>.md-1-6 {
+        grid-column: 1 / 7;
+    }
+
+    .row>.md-7-12 {
+        grid-column: 7 / 13;
+    }
+}
+
+/* ============================================
+   MEDIA QUERIES - DESKTOP (min-width: 90em)
+   ============================================ */
+@media screen and (min-width: 90em) {
+
+    .hero_title {
+        margin-bottom: 6.25rem;
+    }
+
+    .row {
+        gap: 3rem;
+    }
+
+    .row>.lg-3 {
+        grid-column: span 3;
+    }
+
+    .row>.lg-4 {
+        grid-column: span 4;
+    }
+
+    .row>.lg-5 {
+        grid-column: span 5;
+    }
+
+    .row>.lg-6 {
+        grid-column: span 6;
+    }
+
+    .row>.lg-7 {
+        grid-column: span 7;
+    }
+
+    .row>.lg-1-5 {
+        grid-column: 1 / 6;
+    }
+
+    .row>.lg-1-7 {
+        grid-column: 1 / 8;
+    }
+
+    .row>.lg-8-12 {
+        grid-column: 8 / 13;
+    }
+}
